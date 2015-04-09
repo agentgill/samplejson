@@ -10,6 +10,55 @@ public  class xmlData{
    
    
 }
+public class Innings_list {
+        public String current;
+        public String description;
+        public String innings_number;
+        public Integer selected;
+        public String team_id;
+    }
+
+public class Common {
+        public List<Batting> batting;
+        public List<Bowling> bowling;
+        public Innings innings;
+        public List<Innings_list> innings_list;
+        public String innings_number;
+        public Match match;
+    }
+
+public class Squad {
+        public String alpha_name;
+        public String captain;
+        public String card_long;
+        public String card_qualifier;
+        public String card_short;
+        public String date_announced;
+        public String dob;
+        public String event_content_type;
+        public String event_object_id;
+        public String keeper;
+        public String known_as;
+        public String mobile_name;
+        public String object_id;
+        public String player_id;
+        public String popular_alt_id;
+        public String popular_name;
+        public String popular_object_id;
+        public String portrait_alt_id;
+        public String portrait_object_id;
+        public String role_id;
+        public String role_name;
+        public String role_priority;
+        public String role_type_id;
+        public String role_type_name;
+        public String squad_id;
+        public String squad_note;
+        public String squad_title;
+        public String squad_type_id;
+        public String squad_type_name;
+    }
+    
     public class Innings{
         public String ball_limit;
         public String balls;
@@ -178,7 +227,41 @@ public  class xmlData{
         public String sixes;
         public String strike_rate;
         public String team_id;
+       // public String balls_faced;
+        public String batting_style;
+        public String control_percentage;
+        public String dismissal_name;
+        public String dot_ball_percentage;
+        public String known_as;
+      //  public String live_current_name;
+        public Integer match_award;
+        public String notout;
+       // public String player_id;
+        public String popular_name;
+        public Preferred_shot preferred_shot;
+      //  public String runs;
+        public List<String> runs_summary;
+        public String scoring_shots;
+      //  public String strike_rate;
+        public List<Wagon_zone> wagon_zone;
+        public String hand;
+        public String image_path;
+        public String position;
     }
+
+public class Wagon_zone {
+        public Integer runs;
+        public List<Integer> runs_summary;
+        public Integer scoring_shots;
+    }
+
+ public class Preferred_shot {
+        public String balls_faced;
+        public String runs;
+        public List<String> runs_summary;
+        public String shot_name;
+    }
+
 
     public class Out_player { 
         public String balls_faced;
@@ -206,6 +289,7 @@ public  class xmlData{
     }
 
     public class Centre {
+    public Common common;
     }
 
     public class Batting_recent { 
@@ -335,6 +419,18 @@ public  class xmlData{
         public String team_id;
         public String wickets;
         public String wides;
+      //  public String conceded;
+        public String hand;
+        public String image_path;
+        public String known_as;
+      //  public String live_current_name;
+      //  public String maidens;
+      //  public String overs;
+        public String pacespin;
+      //  public String player_id;
+        public String popular_name;
+        public String position;
+       // public String wickets;
     }
 
     public class Player { 
@@ -542,6 +638,7 @@ public  class xmlData{
         public String team_name;
         public String team_short_name;
         public String url_component;
+        public List<Squad> squad;
     }
 
     public class Recent_overs { 
