@@ -1,20 +1,20 @@
 [
   {
-    "Name": "Candidate1",
+    "Name": "Candidate 1",
     "AccNumber": "1",
     "Source": "Web",
     "Site": "www.gmail.com",
     "Email": "Candidate1@gmail.com"
   },
   {
-    "Name": "Candidate2",
+    "Name": "Candidate 2",
     "AccNumber": "2",
     "Source": "Phone Inquiry",
     "Site": "www.yahoo.com",
     "Email": "Candidate2@yahoo.com"
   },
   {
-    "Name": "Candidate3",
+    "Name": "Candidate 3",
     "AccNumber": "3",
     "Source": "Partner Referral",
     "Site": "www.hotmail.com",
