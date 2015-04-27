@@ -1,0 +1,42 @@
+[
+  {
+    "Name": "Candidate1",
+    "Country": "Germany"
+  },
+  {
+    "Name": "Candidate2",
+    "Country": "France"
+  },
+  {
+    "Name": "Candidate3",
+    "Country": "Italy"
+  },
+  {
+    "Name": "Candidate4",
+    "Country": "Canada"
+  },
+  {
+    "Name": "Candidate5",
+    "Country": "Dubai"
+  },
+  {
+    "Name": "Candidate6",
+    "Country": "Swizerland"
+  },
+  {
+    "Name": "Candidate7",
+    "Country": "Chicago"
+  },
+  {
+    "Name": "Candidate8",
+    "Country": "Spain"
+  },
+  {
+    "Name": "Candidate9",
+    "Country": "Torronto"
+  },
+  {
+    "Name": "Candidate10",
+    "Country": "LAs Vegas"
+  }
+]
