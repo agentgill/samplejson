@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php 
+
+
+
+if(isset($_GET["Name"]) && isset($_GET["AccNumber"]) && isset($_GET["Source"]) && isset($_GET["Site"]) && isset($_GET["Email"])) {
+
+
+$Host = "mysql6.000webhost.com"; //location of mySQL on server
+$User = "a2966690_sachin"; //my username
+$Pass = "sachin123"; //my password
+$Name = "a2966690_sales"; //name of the database to be used
+$db = "a2966690_sales";
+
+$Name = $_GET["Name"];
+$AccNumber = $_GET["AccNumber"];
+$Source = $_GET["Source"];
+$Site = $_GET["Site"];
+$Email = $_GET["Email"]; 
+
+		$conn =  mysql_connect ($Host, $User, $Pass, $Name) or die ("unable to connect to database");
+		 mysql_select_db("$db") or die ("unable to select DB");
+		 $queryString = "INSERT INTO Account (Name,AccNumber,Source,Site,Email) VALUES ('$Name','$AccNumber','$Source','$Site',  '$Email')";
+        $result = mysql_query($queryString);
+		  
+if($result)
+{
+echo  json_encode(array("Result"=>"Record Successfully Insert into My Sql DB","Error"=>"0"));
+}
+
+else{
+echo  json_encode(array("Error"=>"mysql_error()","Error"=>"1"));
+}
+}
+else{
+echo  json_encode(array("Result"=>"Error Occured out","Error"=>"1"));
+}
+?>  
+
+</body>
+</html>
