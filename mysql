@@ -3,47 +3,36 @@
 <body>
 
 <?php
-$servername = "mysql6.000webhost.com";
-$username = "a2966690_sachin";
-$password = "sachin123";
-$dbname = "a2966690_sales";
-
 
 if(isset($_GET["account"])) {
-	$var1 = $_GET["account"];
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "SELECT Name,AccNumber,Source,Site,Email FROM Account where Name = '$var1'";
-
-$result = $conn->query($sql);
-
-if($result)
+$var1 = $_GET["account"];
+$Host = "mysql6.000webhost.com"; //location of mySQL on server
+$User = "a2966690_sachin"; //my username
+$Pass = "sachin123"; //my password
+$Name = "a2966690_sales"; //name of the database to be used
+		$conn =  mysql_connect ($Host, $User, $Pass, $Name) or die ("unable to connect to database");
+		 mysql_select_db("$Name") or die ("unable to select DB");
+		// $sqlquery = "SELECT Name,AccNumber,Source,Site,Email FROM 'Account' where Name = '$var1'";
+		 $result = mysql_query("SELECT * FROM Account where Name = '$var1'");
+		 $number = mysql_num_rows($result); 
+if($number > 0)
 {
-	 $account_list = array();
- while ($row = $result->fetch_assoc()) {
-	 $account_list[] = array("Name"=>$row["Name"],"AccNumber"=>$row["AccNumber"],"Source"=>$row["Source"],"Site"=>$row["Site"],"Email"=>$row["Email"],"Result"=>"Account Exist in the My Sql DB","Error"=>"0");
- }
-	$account_json = json_encode($account_list);
-	echo $account_json;
 
-$conn->close();
+ $account_list = array();
+while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+ $account_list[] = array("Name"=>$row["Name"],"AccNumber"=>$row["AccNumber"],"Source"=>$row["Source"],"Site"=>$row["Site"],"Email"=>$row["Email"],"Result"=>"Account Exist in the My Sql DB","Error"=>"0");
 }
-else{
-	echo  "dd";
-echo  json_encode(array("Result"=>"Account Does Not Exist in the My Sql DB","Error"=>"1"));
-}
+$account_json = json_encode($account_list);
+echo $account_json;
+mysql_close($conn);
 }
 else{
 echo  json_encode(array("Result"=>"Account Does Not Exist in the My Sql DB","Error"=>"1"));
 }
-
-
-
+}
+else{
+echo  json_encode(array("Result"=>"Account Does Not Exist in the My Sql DB","Error"=>"1"));
+}
 ?>  
 
 </body>
