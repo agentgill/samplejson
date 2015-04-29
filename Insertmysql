@@ -7,7 +7,7 @@
 
 
 if(isset($_GET["Name"]) && isset($_GET["AccNumber"]) && isset($_GET["Source"]) && isset($_GET["Site"]) && isset($_GET["Email"])) {
-
+date_default_timezone_set("Asia/Kolkata");
 
 $Host = "mysql6.000webhost.com"; //location of mySQL on server
 $User = "a2966690_sachin"; //my username
@@ -25,18 +25,18 @@ $Email = $_GET["Email"];
 		 mysql_select_db("$db") or die ("unable to select DB");
 		 $queryString = "INSERT INTO Account (Name,AccNumber,Source,Site,Email) VALUES ('$Name','$AccNumber','$Source','$Site',  '$Email')";
         $result = mysql_query($queryString);
-		  
+		                                                            
 if($result)
 {
-echo  json_encode(array("Result"=>"Record Successfully Insert into My Sql DB","Error"=>"0"));
+echo  json_encode(array("Result"=>"Record Successfully Insert into My Sql DB","Error"=>"0","Time"=>date('Y-m-d H:i:s')));
 }
 
 else{
-echo  json_encode(array("Error"=>"mysql_error()","Error"=>"1"));
+echo  json_encode(array("Result"=>mysql_error($conn),"Error"=>"1","Time"=>date('Y-m-d H:i:s')));
 }
 }
 else{
-echo  json_encode(array("Result"=>"Error Occured out","Error"=>"1"));
+echo  json_encode(array("Result"=>mysql_error($conn),"Error"=>"1","Time"=>date('Y-m-d H:i:s')));
 }
 ?>  
 
